@@ -1,14 +1,36 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content no-padding>
+  <div id="light" [ngClass]="{ 'status-on' : lightIsOn}"></div>
+  
+  <div id="status-information">
+    <p *ngIf="turningOff">The light is turning off...</p>
+   
+    <ng-container *ngIf="!turningOff" [ngSwitch]="lightMode">
+      <p *ngSwitchCase="'inOut'">Sync your breathing. <br>Yellow is IN, orange is OUT.</p>
+      <p *ngSwitchCase="'478'" >The 4-7-8 seconds method (In-Keep-Out).</p>
+    </ng-container>
+  </div>
+  <div id="button-container">
+    <ng-container *ngIf="!lightIsOn && !turningOff; else switchLight" >
+      <div class="button" (click)="changeMode()">
+        <ng-container [ngSwitch]="lightMode">
+          <ion-icon *ngSwitchCase="'478'" name="podium"><ion-label>4-7-8</ion-label></ion-icon>
+          <ion-icon *ngSwitchCase="'inOut'" name="leaf"><ion-label>In/Out</ion-label></ion-icon>
+        </ng-container>
+      </div>
+      <div class="button bulb" (click)="turnOn()" ><ion-icon name="ios-bulb-outline"></ion-icon></div>
+      <div class="button" (click)="changeTime()">
+        <ion-icon name="timer">
+          <ion-label>{{minutesToTurnOff}} min</ion-label>
+        </ion-icon>
+      </div>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+    </ng-container>
+
+    <ng-template #switchLight >
+      <div class="button bulb on" [ngClass]="{'disabled' : turningOff  }" (click)="turnOff()" ><ion-icon name="ios-bulb"></ion-icon></div>
+    </ng-template>
+    
+  </div>
 </ion-content>
+
+

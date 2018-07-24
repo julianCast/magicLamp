@@ -1,3 +1,61 @@
 page-home {
-
+  ion-content {
+    background: black !important;
+    #light {
+      width: 280px;
+      height: 280px;
+      border-radius: 280px;
+      margin: 40px auto;
+      background: black;
+      opacity: 1;
+      border: 2px dashed color($colors, primary);
+      &.status-on {
+        border: none;
+      }
+    }
+  }
+ 
+  #status-information {
+    position: absolute;
+    color: color($colors, primary);
+    bottom: 72px;
+    font-size: 17px;
+    p {
+      position: relative;
+      text-align: center;
+      width: 100vw;
+    }
+  }
+  #button-container {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+    height: 70px;
+    border-top: 1px solid color($colors, primary);
+    .button {
+      width: 100vw;
+      border-right: 1px solid color($colors, primary);
+      border-left: 1px solid color($colors, primary);
+      color: color($colors, primary);
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 25px;
+      &.bulb {
+        font-size: 50px;
+        &.on {
+          border-color: color($colors, primary-dark);
+          color: color($colors, primary-dark);
+        }
+      }
+      ion-label {
+        font-size: 15px;
+        margin: 0;
+        font-weight: bolder;
+      }      
+    }
+  }
 }
