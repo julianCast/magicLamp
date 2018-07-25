@@ -2,15 +2,13 @@
   <div id="light" [ngClass]="{ 'status-on' : lightIsOn}"></div>
   
   <div id="status-information">
-    <p *ngIf="turningOff">The light is turning off...</p>
-   
-    <ng-container *ngIf="!turningOff" [ngSwitch]="lightMode">
+    <ng-container *ngIf="!hideQuickInfo" [ngSwitch]="lightMode">
       <p *ngSwitchCase="'inOut'">Sync your breathing. <br>Yellow is IN, orange is OUT.</p>
       <p *ngSwitchCase="'478'" >The 4-7-8 seconds method (In-Keep-Out).</p>
     </ng-container>
   </div>
-  <div id="button-container">
-    <ng-container *ngIf="!lightIsOn && !turningOff; else switchLight" >
+  <div id="button-container" [ngClass] = " {'status-on': lightIsOn}  ">
+    <ng-container *ngIf="!lightIsOn; else switchLight" >
       <div class="button" (click)="changeMode()">
         <ng-container [ngSwitch]="lightMode">
           <ion-icon *ngSwitchCase="'478'" name="podium"><ion-label>4-7-8</ion-label></ion-icon>
@@ -27,7 +25,7 @@
     </ng-container>
 
     <ng-template #switchLight >
-      <div class="button bulb on" [ngClass]="{'disabled' : turningOff  }" (click)="turnOff()" ><ion-icon name="ios-bulb"></ion-icon></div>
+      <div class="button bulb on" (click)="turnOff()" ><ion-icon name="ios-bulb"></ion-icon></div>
     </ng-template>
     
   </div>
