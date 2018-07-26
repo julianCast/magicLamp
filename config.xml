@@ -85,4 +85,5 @@
     <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
     <engine name="android" spec="7.0.0" />
     <plugin name="cordova-plugin-insomnia" spec="^4.3.0" />
+    <plugin name="cordova-plugin-brightness" spec="^0.2.0" />
 </widget>

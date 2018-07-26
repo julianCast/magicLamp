@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Insomnia } from '@ionic-native/insomnia';
+import { Brightness } from '@ionic-native/brightness';
 
 declare var $: any;
 
@@ -15,6 +16,7 @@ export class HomePage {
   private turnOffTimer: any = null
   private minutesToTurnOff: number = 8
   private lightMode: string = 'inOut'
+  private lightModes: Array<string> = ["inOut", "478"/* , "bonfire" */]
 
   // inOut Mode
   private secondsToInhale_inOut: number = 4
@@ -35,7 +37,8 @@ export class HomePage {
   private timeOutHoldBreath_478: any
   constructor(
     public navCtrl: NavController,
-    public insomnia: Insomnia
+    public insomnia: Insomnia,
+    private brightness: Brightness
   ) {}
 
   protected startInOutMode(): void
@@ -114,7 +117,9 @@ export class HomePage {
 
   protected changeMode(): void
   {
-    this.lightMode = this.lightMode == 'inOut' ? '478' : 'inOut'
+    let currentIndex =  this.lightModes.indexOf(this.lightMode)
+    let indexToGo =currentIndex+1 < this.lightModes.length ?currentIndex+1 : 0
+    this.lightMode = this.lightModes[indexToGo]
   }
 
   protected turnOff(): void
@@ -127,6 +132,11 @@ export class HomePage {
     clearTimeout(this.timeOutHoldBreath_478)
     $('#light').stop()
     $('#light').css({backgroundColor: "black"})
+  }
+
+  protected ionViewDidLoad()
+  {
+    this.brightness.setBrightness(0.8)
   }
 
 }

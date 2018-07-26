@@ -5,6 +5,7 @@
     <ng-container *ngIf="!hideQuickInfo" [ngSwitch]="lightMode">
       <p *ngSwitchCase="'inOut'">Sync your breathing. <br>Yellow is IN, orange is OUT.</p>
       <p *ngSwitchCase="'478'" >The 4-7-8 seconds method (In-Keep-Out).</p>
+      <p *ngSwitchCase="'bonfire'">Realistic bonfire.</p>
     </ng-container>
   </div>
   <div id="button-container" [ngClass] = " {'status-on': lightIsOn}  ">
@@ -13,6 +14,7 @@
         <ng-container [ngSwitch]="lightMode">
           <ion-icon *ngSwitchCase="'478'" name="podium"><ion-label>4-7-8</ion-label></ion-icon>
           <ion-icon *ngSwitchCase="'inOut'" name="leaf"><ion-label>In/Out</ion-label></ion-icon>
+          <ion-icon *ngSwitchCase="'bonfire'" name="bonfire"><ion-label>Bonfire</ion-label></ion-icon>
         </ng-container>
       </div>
       <div class="button bulb" (click)="turnOn()" ><ion-icon name="ios-bulb-outline"></ion-icon></div>
