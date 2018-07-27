@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, ValueProvider } from '@angular/core'
 import { NavController } from 'ionic-angular'
 import { Insomnia } from '@ionic-native/insomnia'
 import { Brightness } from '@ionic-native/brightness'
@@ -36,6 +36,8 @@ export class HomePage {
   private secondsToExhale_478: number = 8
   private colorToExhale_478: string = "#ce4c00"
   private timeOutHoldBreath_478: any
+
+  private soundIsEnabled : boolean = false
   constructor(
     public navCtrl: NavController,
     public insomnia: Insomnia,
@@ -143,6 +145,11 @@ export class HomePage {
   protected changeTime(): void
   {
     this.minutesToTurnOff = this.minutesToTurnOff == 8 ? 20 : 8
+  }
+
+  protected soundToggle(): void
+  {
+    this.soundIsEnabled = !this.soundIsEnabled
   }
 
   protected changeMode(): void

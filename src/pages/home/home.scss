@@ -2,13 +2,21 @@ page-home {
   ion-content {
     background: black !important;
     #inverse-screen {
+      left: 8px;
+      top: 8px;
+    }
+    #sound-toggle {
+      right: 8px;
+      top: 8px;
+    }
+    .button-action {
       color: color($colors, primary);
       position: absolute;
       font-size: 31px;
       padding: 5px;
-      border-radius: 0px;
-      left: 8px;
-      top: 8px;
+      img {
+        width: 33px;
+      }
     }
     #light {
       width: 280px;

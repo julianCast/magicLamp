@@ -1,7 +1,13 @@
 <ion-content no-padding>
-  <div id="inverse-screen" (click)="invertScreen()">
+  <div id="inverse-screen" class="button-action" (click)="invertScreen()">
     <ion-icon name="refresh"></ion-icon>
   </div>
+
+  <div id="sound-toggle" class="button-action" (click)="soundToggle()">
+    <img *ngIf="!soundIsEnabled" src="assets/imgs/sound-muted-icon.svg" />
+    <img *ngIf="soundIsEnabled" src="assets/imgs/sound-icon.svg" />
+  </div>
+
   <div id="light" [ngClass]="{ 'status-on' : lightIsOn}"></div>
   
   <div id="status-information">
