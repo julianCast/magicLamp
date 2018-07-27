@@ -1,6 +1,15 @@
 page-home {
   ion-content {
     background: black !important;
+    #inverse-screen {
+      color: color($colors, primary);
+      position: absolute;
+      font-size: 31px;
+      padding: 5px;
+      border-radius: 0px;
+      left: 8px;
+      top: 8px;
+    }
     #light {
       width: 280px;
       height: 280px;

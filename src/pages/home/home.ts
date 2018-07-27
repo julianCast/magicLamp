@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { Insomnia } from '@ionic-native/insomnia';
-import { Brightness } from '@ionic-native/brightness';
+import { Component } from '@angular/core'
+import { NavController } from 'ionic-angular'
+import { Insomnia } from '@ionic-native/insomnia'
+import { Brightness } from '@ionic-native/brightness'
+import { ScreenOrientation } from '@ionic-native/screen-orientation'
 
 declare var $: any;
 
@@ -16,7 +17,7 @@ export class HomePage {
   private turnOffTimer: any = null
   private minutesToTurnOff: number = 8
   private lightMode: string = 'inOut'
-  private lightModes: Array<string> = ["inOut", "478"/* , "bonfire" */]
+  private lightModes: Array<string> = ["inOut", "478", "bonfire"]
 
   // inOut Mode
   private secondsToInhale_inOut: number = 4
@@ -38,7 +39,8 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
     public insomnia: Insomnia,
-    private brightness: Brightness
+    private brightness: Brightness,
+    private screenOrientation: ScreenOrientation
   ) {}
 
   protected startInOutMode(): void
@@ -89,6 +91,32 @@ export class HomePage {
     });
   }
 
+  protected startBonfireMode(): void
+  {
+    $('#light').css({backgroundColor: this.colorToInhale_478})
+    
+    $('#light').css({opacity: this._getRandomOpacityValue()})
+   setTimeout(() => {
+     this.startBonfireMode()
+   }, 70);
+
+  }
+
+  protected invertScreen(): void
+  {
+    let orientationModeToChange = "portrait-primary"
+    
+    if (this.screenOrientation.type == "portrait-primary") {
+      orientationModeToChange = "portrait-secondary"
+    }
+    this.screenOrientation.lock(orientationModeToChange);
+  }
+
+  protected _getRandomOpacityValue(): number 
+  {
+    return Math.round(Math.random() * (1) * 100) / 100
+  }
+
   protected turnOn(): void
   {
     this.lightIsOn =  true
@@ -100,8 +128,10 @@ export class HomePage {
       case "inOut":
         this.startInOutMode()
         break;
-        case "478":
+      case "478":
         this.start478Mode()
+      case "bonfire":
+        this.startBonfireMode()
         break;
     }
    

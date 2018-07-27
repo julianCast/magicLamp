@@ -86,4 +86,5 @@
     <engine name="android" spec="7.0.0" />
     <plugin name="cordova-plugin-insomnia" spec="^4.3.0" />
     <plugin name="cordova-plugin-brightness" spec="^0.2.0" />
+    <plugin name="cordova-plugin-screen-orientation" spec="^3.0.1" />
 </widget>

@@ -1,4 +1,7 @@
 <ion-content no-padding>
+  <div id="inverse-screen" (click)="invertScreen()">
+    <ion-icon name="refresh"></ion-icon>
+  </div>
   <div id="light" [ngClass]="{ 'status-on' : lightIsOn}"></div>
   
   <div id="status-information">
