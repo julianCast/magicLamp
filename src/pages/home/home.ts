@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular'
 import { Insomnia } from '@ionic-native/insomnia'
 import { Brightness } from '@ionic-native/brightness'
 import { ScreenOrientation } from '@ionic-native/screen-orientation'
+import { NativeAudio } from '@ionic-native/native-audio'
 
 declare var $: any;
 
@@ -42,7 +43,8 @@ export class HomePage {
     public navCtrl: NavController,
     public insomnia: Insomnia,
     private brightness: Brightness,
-    private screenOrientation: ScreenOrientation
+    private screenOrientation: ScreenOrientation,
+    private nativeAudio: NativeAudio
   ) {}
 
   protected startInOutMode(): void
@@ -129,9 +131,23 @@ export class HomePage {
     switch (this.lightMode) {
       case "inOut":
         this.startInOutMode()
+        if (this.soundIsEnabled) {
+          this.nativeAudio.loop('tictac').catch(
+            e => {
+              console.error(e)
+            }
+          );
+        }
         break;
       case "478":
         this.start478Mode()
+        if (this.soundIsEnabled) {
+          this.nativeAudio.loop('tictac').catch(
+            e => {
+              console.error(e)
+            }
+          );
+        }
       case "bonfire":
         this.startBonfireMode()
         break;
@@ -164,7 +180,7 @@ export class HomePage {
     this.lightIsOn =  false 
     this.insomnia.allowSleepAgain()
     this.hideQuickInfo = false
-
+    this.nativeAudio.stop('tictac');
     clearTimeout(this.turnOffTimer)
     clearTimeout(this.timeOutHoldBreath_478)
     $('#light').stop()
@@ -173,6 +189,13 @@ export class HomePage {
 
   protected ionViewDidLoad()
   {
+    this.nativeAudio.preloadComplex('tictac', "assets/sounds/tictac.ogg", 0.5, 1, 0).then(
+      () =>{
+        console.log('success loading tic tac')
+      }, e =>{
+        console.error(e)
+      }
+    );
     this.brightness.setBrightness(0.8)
   }
 
