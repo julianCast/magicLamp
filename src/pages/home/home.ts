@@ -38,6 +38,8 @@ export class HomePage {
   private colorToExhale_478: string = "#ce4c00"
   private timeOutHoldBreath_478: any
 
+  //bonfire 
+  private bonFireTimeout: any
   private soundIsEnabled : boolean = false
   constructor(
     public navCtrl: NavController,
@@ -97,13 +99,11 @@ export class HomePage {
 
   protected startBonfireMode(): void
   {
-    $('#light').css({backgroundColor: this.colorToInhale_478})
-    
-    $('#light').css({opacity: this._getRandomOpacityValue()})
-   setTimeout(() => {
-     this.startBonfireMode()
-   }, 70);
+    $('#light').css({ backgroundColor: "#ce7b00" })
 
+    $('#light').animate({ opacity: this._getRandomValue(0.7, 1) },this._getRandomValueNoDecimals(50, 1200), () =>{
+      this.startBonfireMode()
+    })
   }
 
   protected invertScreen(): void
@@ -116,9 +116,20 @@ export class HomePage {
     this.screenOrientation.lock(orientationModeToChange);
   }
 
-  protected _getRandomOpacityValue(): number 
+  protected _getRandomValue(min: number, max: number): number 
   {
-    return Math.round(Math.random() * (1) * 100) / 100
+    return Math.round((Math.random() * (max - min) + min) * 100) / 100
+  }
+
+  protected _getRandomValueNoDecimals(min: number, max: number): number 
+  {
+    return Math.round((Math.random() * (max - min) + min) )
+  }
+
+  protected _getRandomColor(): string 
+  {
+    let myArray = ["#ce7b00","#e7b00","#ce7b00","#ce7b00","#ce7b00", "#ff6600"]
+    return myArray[Math.floor(Math.random() * myArray.length)];
   }
 
   protected turnOn(): void
@@ -148,6 +159,7 @@ export class HomePage {
             }
           );
         }
+        break;
       case "bonfire":
         this.startBonfireMode()
         break;
@@ -166,6 +178,13 @@ export class HomePage {
   protected soundToggle(): void
   {
     this.soundIsEnabled = !this.soundIsEnabled
+    if (this.lightIsOn) {
+      if (this.soundIsEnabled ) {
+        this.nativeAudio.loop('tictac')
+      } else {
+        this.nativeAudio.stop('tictac');
+      }
+    }
   }
 
   protected changeMode(): void
@@ -183,6 +202,7 @@ export class HomePage {
     this.nativeAudio.stop('tictac');
     clearTimeout(this.turnOffTimer)
     clearTimeout(this.timeOutHoldBreath_478)
+    clearTimeout(this.bonFireTimeout)
     $('#light').stop()
     $('#light').css({backgroundColor: "black"})
   }

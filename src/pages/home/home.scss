@@ -50,6 +50,9 @@ page-home {
     justify-content: space-evenly;
     height: 70px;
     border-top: 1px solid color($colors, primary);
+    img {
+      height: 40px;
+    }
     &.status-on {
       border-top-color: color($colors, primary-dark);
     }
