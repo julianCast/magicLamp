@@ -1,5 +1,9 @@
+
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
 page-home {
   ion-content {
+    font-family: 'Press Start 2P', cursive;
     background: black !important;
     #inverse-screen {
       left: 8px;
@@ -35,7 +39,7 @@ page-home {
     position: absolute;
     color: color($colors, primary);
     bottom: 72px;
-    font-size: 17px;
+    font-size: 12px;
     p {
       position: relative;
       text-align: center;
@@ -74,9 +78,11 @@ page-home {
         }
       }
       ion-label {
-        font-size: 15px;
+        font-size: 10px;
         margin: 0;
         font-weight: bolder;
+        font-family: 'Press Start 2P', cursive;
+
       }      
     }
   }
