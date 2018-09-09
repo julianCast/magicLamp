@@ -12,16 +12,16 @@
   
   <div id="status-information">
     <ng-container *ngIf="!hideQuickInfo" [ngSwitch]="lightMode">
-      <p *ngSwitchCase="'inOut'">Sync your breathing. <br>Yellow is IN, orange is OUT.</p>
-      <p *ngSwitchCase="'478'" >The 4-7-8 seconds method (In-Keep-Out).</p>
-      <p *ngSwitchCase="'bonfire'">Realistic candle light</p>
+      <p *ngSwitchCase="'inOut'">{{'APP.MODE_INOUT' | translate }} <br><br>{{'APP.MODE_INOUT_desc' | translate }}</p>
+      <p *ngSwitchCase="'478'" >{{'APP.MODE_478' | translate }}<br><br>{{'APP.MODE_478_desc' | translate }}</p>
+      <p *ngSwitchCase="'bonfire'">{{'APP.MODE_CANDLE' | translate }} </p>
     </ng-container>
   </div>
   <div id="button-container" [ngClass] = " {'status-on': lightIsOn}  ">
     <ng-container *ngIf="!lightIsOn; else switchLight" >
       <div class="button" (click)="changeMode()">
         <ng-container [ngSwitch]="lightMode">
-          <ion-icon *ngSwitchCase="'inOut'" name="swap"><ion-label>In/Out</ion-label></ion-icon>
+          <ion-icon *ngSwitchCase="'inOut'" name="swap"><ion-label>{{'APP.MODE_INOUT_TITLE' | translate }}</ion-label></ion-icon>
           <ion-icon *ngSwitchCase="'478'" name="podium"><ion-label>4-7-8</ion-label></ion-icon>
           <ng-container *ngSwitchCase="'bonfire'"  >
             <img  src="assets/imgs/candle-icon.svg" />

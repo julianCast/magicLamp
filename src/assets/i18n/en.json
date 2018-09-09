@@ -1,0 +1,10 @@
+{
+  "APP": {
+    "MODE_CANDLE": "Realistic candle light.",
+    "MODE_478": "The 4-7-8 seconds method.",
+    "MODE_478_desc": "In-Keep-Out",
+    "MODE_INOUT_TITLE": "In/Out",
+    "MODE_INOUT": "Sync your breathing.",
+    "MODE_INOUT_desc": " Yellow: IN, Orange: OUT"    
+  }
+}

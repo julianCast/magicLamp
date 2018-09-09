@@ -1,9 +1,10 @@
-import { Component, ValueProvider } from '@angular/core'
+import { Component } from '@angular/core'
 import { NavController } from 'ionic-angular'
 import { Insomnia } from '@ionic-native/insomnia'
 import { Brightness } from '@ionic-native/brightness'
 import { ScreenOrientation } from '@ionic-native/screen-orientation'
 import { NativeAudio } from '@ionic-native/native-audio'
+import { TranslateService } from '@ngx-translate/core';
 
 declare var $: any;
 
@@ -46,7 +47,8 @@ export class HomePage {
     public insomnia: Insomnia,
     private brightness: Brightness,
     private screenOrientation: ScreenOrientation,
-    private nativeAudio: NativeAudio
+    private nativeAudio: NativeAudio,
+    private translate: TranslateService
   ) {}
 
   protected startInOutMode(): void
@@ -209,6 +211,8 @@ export class HomePage {
 
   protected ionViewDidLoad()
   {
+    console.log('hla')
+    console.log("YEAH", this.translate.instant("APP.MODE_CANDLE"))
     this.nativeAudio.preloadComplex('tictac', "assets/sounds/tictac.ogg", 0.5, 1, 0).then(
       () =>{
         console.log('success loading tic tac')
