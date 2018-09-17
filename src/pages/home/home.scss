@@ -32,6 +32,9 @@ page-home {
       &.status-on {
         border: none;
       }
+      &.square-shape {
+        border-radius: 0;
+      }
     }
   }
  

@@ -15,6 +15,7 @@ declare var $: any;
 export class HomePage {
 
   private lightIsOn : boolean = false
+  private squareShapeOn : boolean = false
   protected hideQuickInfo : boolean = false
   private turnOffTimer: any = null
   private minutesToTurnOff: number = 8
@@ -106,6 +107,11 @@ export class HomePage {
     $('#light').animate({ opacity: this._getRandomValue(0.7, 1) },this._getRandomValueNoDecimals(50, 1200), () =>{
       this.startBonfireMode()
     })
+  }
+
+  protected changeLightShape(): void
+  {
+    this.squareShapeOn = this.squareShapeOn ? false : true
   }
 
   protected invertScreen(): void
