@@ -1,8 +1,7 @@
 {
-  "name": "magicLamp",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "name": "Atnight",
+  "version": "1.0.0",
+  "author": "Julian Garcia",
   "private": true,
   "scripts": {
     "start": "ionic-app-scripts serve",
