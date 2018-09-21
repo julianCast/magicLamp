@@ -5,6 +5,7 @@
     "MODE_478_desc": "In-Keep-Out",
     "MODE_INOUT_TITLE": "In/Out",
     "MODE_INOUT": "Sync your breathing.",
+    "MODE_INOUT_desc": " Yellow: IN, Orange: OUT"  ,
     "ATNIGHT_WIZARD": {
       "title": " Atnight: Wizard",
       "slide1_title": "Welcome to Atnight!",
