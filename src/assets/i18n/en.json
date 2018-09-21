@@ -5,6 +5,18 @@
     "MODE_478_desc": "In-Keep-Out",
     "MODE_INOUT_TITLE": "In/Out",
     "MODE_INOUT": "Sync your breathing.",
-    "MODE_INOUT_desc": " Yellow: IN, Orange: OUT"    
+    "ATNIGHT_WIZARD": {
+      "title": " Atnight: Wizard",
+      "slide1_title": "Welcome to Atnight!",
+      "slide1_desc1": "First you need to 3D Print the Dome.",
+      "slide1_desc2": "Tap below to get it.",
+      "slide1_button": "GET DOME",
+      "slide2_title": "That's all!",
+      "slide2_desc1": "Place it close to bed.",
+      "slide2_desc2": "Turn off the lights.",
+      "slide2_button": "I'm ready"
+    }
+        
+      
   }
 }

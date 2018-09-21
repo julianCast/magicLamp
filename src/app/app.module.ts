@@ -14,13 +14,15 @@ import { Insomnia } from '@ionic-native/insomnia';
 import { HttpClient, HttpClientModule } from '@angular/common/http'
 import { LanguageService } from '../providers/language-service/language-service';
 import { HttpModule } from "@angular/http"
-
+import { IonicStorageModule } from '@ionic/storage';
 import { Globalization } from '@ionic-native/globalization';
+import { WizardPage } from '../pages/wizard/wizard';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    WizardPage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import { Globalization } from '@ionic-native/globalization';
         deps: [HttpClient]
       }
     }),
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   exports: [
     TranslateModule
@@ -41,7 +44,8 @@ import { Globalization } from '@ionic-native/globalization';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    WizardPage
   ],
   providers: [
     StatusBar,

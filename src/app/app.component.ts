@@ -5,27 +5,47 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
 import { HomePage } from '../pages/home/home';
 import { LanguageService } from '../providers/language-service/language-service';
+import { WizardPage } from '../pages/wizard/wizard';
+import { Storage } from '@ionic/storage';
+
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage
+  rootPage:any
 
   constructor(
     private platform: Platform, 
     statusBar: StatusBar, 
     splashScreen: SplashScreen,
     private translate: TranslateService,
-    private language: LanguageService
+    private language: LanguageService,
+    private storage: Storage
   ) {
 
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.hide();
-      this.selectAppLanguage()
-      splashScreen.hide();
+      this.selectAppLanguage().then(
+        () => {
+          splashScreen.hide();
+          
+          this.storage.get('wizardShown').then(
+            data => {
+              if (data) {
+                this.rootPage = HomePage
+              } else {  
+                this.rootPage = WizardPage
+              }
+            },
+            e => {
+              console.log('e', e)
+            }
+          )    
+        }
+      )  
     }); 
   }
 

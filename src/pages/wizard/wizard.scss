@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
+.wizard-page {
+  font-family: 'Press Start 2P', cursive;
+ 
+  .toolbar-background-md {
+    background: rgb(27, 27, 27);
+  }
+  .toolbar-title {
+    color:white;
+  }
+  h2 {
+    color: #fff;
+    font-size: 1.5rem;
+  }
+  p {
+    font-size: 1.4rem;
+    line-height: 28px;
+  }
+  #overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: black; opacity: 0; z-index: 99; pointer-events: none; }
+  .swiper-pagination-bullet-active {
+    background: white;
+  }
+
+  ion-title {
+    padding: 0;
+    text-align: center;
+  }
+
+  ion-slide {
+    background: #2f2f2f;
+    color: #a0a0a0;
+    padding-left: 10px;
+    padding-right: 10px;
+    &.slide-2 {
+      background: #2b2b2b;
+    }
+
+  }
+
+
+  .slide-image {
+    height: 180px;
+    margin-bottom: 15px;
+    margin-top: 8px;
+  }
+
+  .centerVH{
+    height: 360px;
+    transform: none;
+    padding-bottom: 0;
+    top: 5%;
+  }
+
+  button{
+    max-width: 110px;
+    margin: 0 auto;
+    background: red;
+    border: none;
+    &.get-dome {
+     padding: 0 6.1em;
+    }
+  }
+
+  .button-outline{
+      border-color: red;
+      color: #ff7a18;
+      background-color: transparent;
+  }
+
+}

@@ -1,0 +1,33 @@
+<div id="overlay"></div>
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{'APP.ATNIGHT_WIZARD.title' | translate }}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-slides viewSlider [initialSlide]="0" [loop]="false" [pager]="true">
+
+  <ion-slide class="slide-1">
+    <div class="centerVH">
+		  <img class="slide-image" src="assets/imgs/splash-1.jpg" />
+		  <h2>{{'APP.ATNIGHT_WIZARD.slide1_title' | translate }}</h2>
+			<p>{{'APP.ATNIGHT_WIZARD.slide1_desc1' | translate }}<br><br>{{'APP.ATNIGHT_WIZARD.slide1_desc2' | translate }}</p>
+			<br>
+			<ion-buttons>
+				<button class="get-dome" ion-button outline>{{'APP.ATNIGHT_WIZARD.slide1_button' | translate }}</button>
+			</ion-buttons>
+    </div>
+	</ion-slide>
+
+	<ion-slide class="slide-2">
+    <div class="centerVH">
+		  <img class="slide-image" src="assets/imgs/slide-2.gif" />
+		  <h2>{{'APP.ATNIGHT_WIZARD.slide2_title' | translate }}</h2>
+			<p>{{'APP.ATNIGHT_WIZARD.slide2_desc1' | translate }}<br><br>{{'APP.ATNIGHT_WIZARD.slide2_desc2' | translate }}</p>
+			<br>
+			<ion-buttons>
+				<button class="get-dome" (click)="getIntoTheApp()" ion-button outline>{{'APP.ATNIGHT_WIZARD.slide2_button' | translate }}</button>
+			</ion-buttons>
+    </div>
+	</ion-slide>
+</ion-slides>

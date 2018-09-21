@@ -1,5 +1,20 @@
 {
   "APP": {
-    "MODE_CANDLE": "Vela realista"
+    "MODE_CANDLE": "Vela realista",
+    "MODE_478": "El método 4-7-8.",
+    "MODE_478_desc": "Dentro-Mantén-Fuera",
+    "MODE_INOUT_TITLE": "Dentro/Fuera",
+    "MODE_INOUT": "Sincroniza tu respiración.",
+    "ATNIGHT_WIZARD": {
+      "title": "Atnight",
+      "slide1_title": "¡Bienvenid@ a Atnight!",
+      "slide1_desc1": "Primero, imprime en 3D tu Dome.",
+      "slide1_desc2": "Toca abajo para conseguirlo.",
+      "slide1_button": "Obtener Dome",
+      "slide2_title": "¡Eso es todo!",
+      "slide2_desc1": "Ponlo cerca de la cama.",
+      "slide2_desc2": "Apaga las luces.",
+      "slide2_button": "Estoy listo"
+    }
   }
 }
