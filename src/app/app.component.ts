@@ -30,8 +30,6 @@ export class MyApp {
       statusBar.hide();
       this.selectAppLanguage().then(
         () => {
-          splashScreen.hide();
-          
           this.storage.get('wizardShown').then(
             data => {
               if (data) {
@@ -39,9 +37,12 @@ export class MyApp {
               } else {  
                 this.rootPage = WizardPage
               }
+              setTimeout(() => {
+                splashScreen.hide();
+              }, 500);
             },
             e => {
-              console.log('e', e)
+              console.error('e', e)
             }
           )    
         }
