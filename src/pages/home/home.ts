@@ -4,7 +4,6 @@ import { Insomnia } from '@ionic-native/insomnia'
 import { Brightness } from '@ionic-native/brightness'
 import { ScreenOrientation } from '@ionic-native/screen-orientation'
 import { NativeAudio } from '@ionic-native/native-audio'
-import { TranslateService } from '@ngx-translate/core';
 
 declare var $: any;
 
@@ -18,6 +17,7 @@ export class HomePage {
   private squareShapeOn : boolean = false
   protected hideQuickInfo : boolean = false
   private turnOffTimer: any = null
+  private quickInfoTimeOut: any;
   private minutesToTurnOff: number = 8
   private lightMode: string = 'inOut'
   private lightModes: Array<string> = ["inOut", "478", "bonfire"]
@@ -48,8 +48,7 @@ export class HomePage {
     public insomnia: Insomnia,
     private brightness: Brightness,
     private screenOrientation: ScreenOrientation,
-    private nativeAudio: NativeAudio,
-    private translate: TranslateService
+    private nativeAudio: NativeAudio
   ) {}
 
   protected startInOutMode(): void
@@ -144,7 +143,7 @@ export class HomePage {
   {
     this.lightIsOn =  true
     this.insomnia.keepAwake()
-    setTimeout(() => {
+    this.quickInfoTimeOut = setTimeout(() => {
       this.hideQuickInfo = true
     }, 2000);
     switch (this.lightMode) {
@@ -211,14 +210,13 @@ export class HomePage {
     clearTimeout(this.turnOffTimer)
     clearTimeout(this.timeOutHoldBreath_478)
     clearTimeout(this.bonFireTimeout)
+    clearTimeout(this.quickInfoTimeOut)
     $('#light').stop()
     $('#light').css({backgroundColor: "black"})
   }
 
   protected ionViewDidLoad()
   {
-    console.log('hla')
-    console.log("YEAH", this.translate.instant("APP.MODE_CANDLE"))
     this.nativeAudio.preloadComplex('tictac', "assets/sounds/tictac.ogg", 0.5, 1, 0).then(
       () =>{
         console.log('success loading tic tac')

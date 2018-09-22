@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import { Slides } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../home/home';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 declare var $: any;
 
 @Component({
@@ -20,7 +22,13 @@ export class WizardPage {
  
   }
 
-  getIntoTheApp()
+  protected getDomeWeb(): void
+  {
+    const iab = new InAppBrowser
+    iab.create("https://www.thingiverse.com/thing:3101864", "_system", "location=yes");
+  }
+
+  protected getIntoTheApp(): void
   {
     this.storage.set('wizardShown', true)
 

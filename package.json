@@ -22,6 +22,7 @@
     "@ionic-native/brightness": "^4.12.2",
     "@ionic-native/core": "~4.9.2",
     "@ionic-native/globalization": "^4.12.2",
+    "@ionic-native/in-app-browser": "^4.14.0",
     "@ionic-native/insomnia": "^4.12.2",
     "@ionic-native/native-audio": "^4.12.2",
     "@ionic-native/screen-orientation": "^4.12.2",
@@ -34,6 +35,7 @@
     "cordova-plugin-brightness": "^0.2.0",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-globalization": "^1.11.0",
+    "cordova-plugin-inappbrowser": "^3.0.0",
     "cordova-plugin-insomnia": "^4.3.0",
     "cordova-plugin-ionic-keyboard": "^2.1.2",
     "cordova-plugin-ionic-webview": "^1.2.1",
@@ -67,7 +69,8 @@
       "cordova-plugin-brightness": {},
       "cordova-plugin-screen-orientation": {},
       "cordova-plugin-nativeaudio": {},
-      "cordova-plugin-globalization": {}
+      "cordova-plugin-globalization": {},
+      "cordova-plugin-inappbrowser": {}
     },
     "platforms": [
       "android"
