@@ -8,9 +8,9 @@
     "MODE_INOUT_desc": " Amarillo: Dentro, Naranja: Fuera",
     "ATNIGHT_WIZARD": {
       "title": "Atnight",
-      "slide1_title": "¡Bienvenid@ a Atnight!",
-      "slide1_desc1": "Primero, imprime en 3D tu Dome.",
-      "slide1_desc2": "Toca abajo para conseguirlo.",
+      "slide1_title": "¡Bienvenid@!",
+      "slide1_desc1": "Primero, necesitas tu Dome 3D.",
+      "slide1_desc2": "Toca abajo.",
       "slide1_button": "Obtener Dome",
       "slide2_title": "¡Eso es todo!",
       "slide2_desc1": "Ponlo cerca de la cama.",
